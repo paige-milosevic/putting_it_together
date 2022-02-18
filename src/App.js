@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+
 import './App.css';
+import People from './components/People';
 
 function App() {
-  return (
+
+  const peopleList = [
+    {
+      firstName: "Jane",
+      lastName : "Done",
+      age: 45,
+      hairColor: "Black"
+    },
+    {
+      firstName: "John",
+      lastName: "Smith",
+      age: 88,
+      hairColor: "Brown"
+    }
+  ];
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    {
+      peopleList.map((mameber, index) => {
+        return(
+          <People
+          key={index}
+          firstName={mameber.firstName}
+          lastName={mameber.lastName}
+          age={mameber.age}
+          hairColor={mameber.hairColor}
+          />
+        )
+      }
+      )
+    }
     </div>
-  );
+  )
+
 }
 
 export default App;
